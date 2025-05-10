@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}albums{% endblock %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='single.css') }}">
+</head>
+<h2>singles</h2>
+<div class="products-list">
+    {% for product in singles %}
+    <div class="products-item">
+    <a href="{{ url_for('singles_detail', single_id=product['id']) }}">
+        <img src="{{ url_for('static', filename='images/singlec/' + product['image']) }}"
+        alt="{{ product['name'] }}">
+        <div class="product-name"><h4>{{ product["name"] }}</h4></div>
+        <div class="product-release">{{ product["releaseyr"] }}</div>
+    </a>
+
+    <!-- Delete form -->
+    <form action="{{ url_for('delete_single', single_id=product['id']) }}" method="POST" style="margin-top:10px;" class = "delet">
+        <button type="submit" onclick="return confirm('Delete this single?')">Delete</button>
+    </form>
+</div>
+    
+    {% endfor %}
+</div>
+{% endblock %}

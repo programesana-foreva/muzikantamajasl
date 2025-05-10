@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ album['name'] }}{% endblock %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='songc.css') }}">
+</head>
+<div class="album-header">
+    <img class="album-cover" src="{{ url_for('static', filename='images/albumc/' + album['coverimg']) }}" alt="{{ album['name'] }}">
+    <div class="album-details">
+        <h1>{{ album['name'] }} ({{ album['releaseyear'] }})</h1>
+        {% if album_info %}
+            <p><strong>About:</strong> {{ album_info['album_info'] }}</p>
+        {% else %}
+            <p>No additional information available for this album.</p>
+        {% endif %}
+    </div>
+</div>
+
+<h2>Songs</h2>
+<p>Total songs: {{ album_songs|length }}</p>
+
+<ul>
+    {% for song in album_songs %}
+        <li>
+            <img src="{{ url_for('static', filename='images/albumc/' + song['image']) }}" alt="{{ song['name'] }}">
+            <div class="song-info">
+                <strong>{{ song['name'] }}</strong> – {{ song['length'] }}<br>
+                <span>By: {{ song['authors'] }}</span>
+            </div>
+        </li>
+    {% else %}
+        <li>No songs found for this album.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

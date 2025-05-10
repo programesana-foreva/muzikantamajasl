@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Album/Single{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='createnew.css') }}">
+{% endblock %}
+{% block content %}
+    <h2>Create New Album or Single</h2>
+
+    <!-- Form for album/single creation -->
+    <form action="{{ url_for('createnew') }}" method="POST" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="releaseyear">Release Year:</label>
+        <input type="text" id="releaseyear" name="releaseyear" required><br><br>
+
+        <label for="coverimg">Cover Image:</label>
+        <input type="file" id="coverimg" name="coverimg" accept="image/*" required><br><br>
+
+        <label for="type">Type (Album/Single):</label>
+        <select name="type" id="type" required>
+            <option value="album">Album</option>
+            <option value="single">Single</option>
+        </select><br><br>
+
+        <label for="songnum">Number of Songs (if Album):</label>
+        <input type="number" id="songnum" name="songnum" min="1" step="1"><br><br>
+
+        <input type="submit" value="Create">
+        
+    </form>
+{% endblock %}

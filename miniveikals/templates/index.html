@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Sākums{% endblock %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<div class="index-header"> 
+<img src="https://i.scdn.co/image/ab6761610000e5eb5a7d5278cf9deda53119028c">
+<div class="index-text"> 
+<h1>Adrianne Lenker</h1> <br> 
+<p>"songs of all sorts from places unknown"</p> 
+</div>
+</div>
+<p>Adrianne Lenker (born July 9, 1991) is an American singer-songwriter from Plymouth, Minnesota. She is the guitarist and lead vocalist of Brooklyn-based indie rock band Big Thief. She has also released four solo albums and two EPs with her former husband, Big Thief co-founder Buck Meek.</p>
+
+
+<div class="listen-container">
+    <div class="listen">
+        <img src="https://64.media.tumblr.com/d70c754bdb66f2971a5fb536fd28b267/ce9a09909fa5fb49-5c/s75x75_c1/d042485d48f155ea32db2bcfde00d5ff06289385.gifv">
+        <a><strong> listen:</strong></a> 
+        <br>
+        <a class=alink href="https://open.spotify.com/artist/4aKWmkWAKviFlyvHYPTNQY"> Spotify </a> 
+        <br>
+        <a class=alink href="https://www.youtube.com/@AdrianneLenkerMusic"> YouTube </a>
+    </div>
+
+    <div class="listen">
+        <img src="https://64.media.tumblr.com/f1ef9772dd07e33f4a100e9089cded08/cae4d7fa767917c0-6a/s75x75_c1/4756ae1ad9137bff48dc2d41790eaa22d716eb62.gifv"> 
+        <a><strong> follow:</strong></a>
+        <br>
+        <a  class=alink href="https://www.instagram.com/adriannelenker/?hl=en"> Instagram </a>
+        <br>
+        <a  class=alink href="https://x.com/adriannelenker?lang=en"> Twitter </a>
+    </div>
+</div>
+
+{% endblock %}
